@@ -1,0 +1,10 @@
+{{ define "content" }}
+<h1>{{ if .user }}Edit User{{ else }}New User{{ end }}</h1>
+<form method="POST" action="{{ .action }}">
+  <label>Name:</label><br>
+  <input type="text" name="name" value="{{ if .user }}{{ .user.Name }}{{ end }}" required><br><br>
+  <label>Email:</label><br>
+  <input type="email" name="email" value="{{ if .user }}{{ .user.Email }}{{ end }}" required><br><br>
+  <button type="submit">Save</button>
+</form>
+{{ end }}

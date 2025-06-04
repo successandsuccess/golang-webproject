@@ -1,0 +1,10 @@
+{{ define "content" }}
+<h1>{{ if .post }}Edit Post{{ else }}New Post{{ end }}</h1>
+<form method="POST" action="{{ .action }}">
+  <label>Title:</label><br>
+  <input type="text" name="title" value="{{ if .post }}{{ .post.Title }}{{ end }}" required><br><br>
+  <label>Content:</label><br>
+  <textarea name="content" rows="6" cols="40" required>{{ if .post }}{{ .post.Content }}{{ end }}</textarea><br><br>
+  <button type="submit">Save</button>
+</form>
+{{ end }}
